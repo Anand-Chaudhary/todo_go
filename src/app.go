@@ -3,6 +3,7 @@ package src
 import (
 	"log"
 	"todo/src/db"
+	"todo/src/routes"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
@@ -21,6 +22,8 @@ func SetupApp() *fiber.App {
 	app.Get("/",func (c *fiber.Ctx) error {
 		return c.SendString("Welcome To Todo made with fiber")
 	})
+
+	routes.AuthRoutes(app)
 
 	return app
 }
